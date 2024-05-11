@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Labs Report</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    .header, .nav, .main, .content-section {
+        width: 100%;
+        text-align: center;
+    }
+    .header, .nav {
+        margin-bottom: 20px;
+    }
+    .header{
+        max-width: 1000px;
+        font-size: 12px;
+    }
+    .header p{
+        font-size: 20px;
+    }
+    .lab-box, .content-box {
+        border: 1px solid #000;
+        padding: 20px;
+        margin: 5px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .content-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        left: 20px;
+        top: 220px;
+    }
+    .content-box {
+        border: 1px solid #000;
+        border-radius: 30%;
+        padding: 10px;
+        margin: 5px;
+        margin-left: 120px;
+        width: 150px;
+        height: 70px;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .content-section {
+        display: none;
+        padding: 10px;
+        margin-top: 10px;
+        text-align: left;
+        outline: auto;
+        width: 1100px;
+    }
+    .sectionContent {
+        margin-left: 350px;
+        
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>ЗВІТИ З ЛАБОРАТОРИХ РОБІТ З ДИСЦИПЛІНИ "WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. ОСНОВИ FRONTEND ТА BACKEND РОЗРОБОК"</h1>
+    <p>Студент групи ІО-16 Гірля Максим</p>
+</div>
+<div class="nav">
+    <div class="lab-box" onclick="showLab(1)">Lab #1</div>
+    <div class="lab-box" onclick="showLab(2)">Lab #2</div>
+    <div class="lab-box" onclick="showLab(3)">Lab #3</div>
+    <div class="lab-box" onclick="showLab(4)">Lab #4</div>
+    <div class="lab-box" onclick="showLab(5)">Lab #5</div>
+    <div class="lab-box" onclick="showLab(6)">Lab #6</div>
+    <div class="lab-box" onclick="showLab(7)">Lab #7</div>
+    <div class="lab-box" onclick="showLab(8)">Lab #8</div>
+    <div class="lab-box" onclick="showLab(9)">Lab #9</div>
+</div>
+<div class="main">
+    <div class="content-nav" id="contentNav1">
+        <div class="content-box" onclick="toggleVisibility('introduction')">Опис предметного середовища</div>
+        <div class="content-box" onclick="toggleVisibility('methodology')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('results')">HTML-код таблиць</div>
+        <div class="content-box" onclick="toggleVisibility('discussion')">HTML-код форми</div>
+        <div class="content-box" onclick="toggleVisibility('conclusion')">HTML-код зображення</div>
+        <div class="content-box" onclick="toggleVisibility('references')">Висновки</div>
+    </div>
+    <div class="sectionContent" id="sectionContent">
+        <div id="introduction" class="content-section">
+            <h2>Опис предметного середовища</h2>
+            <p>Барбпершоп</p>
+            <p>Система онлайн бронювання:</p>
+            <p>Вибір послуг: Дозволяє клієнтам вибирати зі списку доступних послуг (наприклад, стрижка, підстригання бороди тощо).
+            </p>
+            <p> Вибір перукаря: Надає можливість вибору перукаря, якщо клієнт має відповідні побажання.</p>
+            <p> Вибір часових інтервалів: Відображає доступні часові проміжки в режимі реального часу.</p>
+            <p>Управління обліковими записами клієнтів:</p>
+            <p> Створення профілю: Дозволяє клієнтам створювати та керувати своїми профілями, зберігаючи особисту інформацію та
+                вподобання.</p>
+            <p>Історія бронювання: Дозволяє клієнтам переглядати минулі зустрічі та майбутні бронювання.</p>
+            <p> Перенесення та скасування: Клієнт має можливість змінювати або скасовувати зустрічі через свій обліковий запис.</p>
+            <p> Відгуки після надання послуг: Після кожної зустрічі клієнт може оцінити сервіс і залишити відгук щоб покращити
+                якість обслуговування. </p>
+            <p> Платіжна інтеграція:</p>
+            <p>Онлайн-платежі: Безпечні варіанти онлайн-платежів за послуги, заброньовані на сайті.</p>
+            <p>Виставлення рахунків: Створює та надсилає цифрові рахунки за надані послуги.</p>
+            <p>Рекламні функції:</p>
+            <p> Сторінка спеціальних пропозицій: Розділ для поточних акцій та спеціальних пропозицій.</p>
+            <p>Подарункові картки та ваучери: Дозволяє купувати подарункові картки через сайт.</p>
+            </div>
+        <div id="methodology" class="content-section">
+            <p>Тема: СТРУКТУРА HTML-ДОКУМЕНТА. ВИБІР ПРЕДМЕТНОЇ ГАЛУЗІ.
+                РОБОТА З ПОСИЛАННЯМИ, ТАБЛИЦЯМИ, ЗОБРАЖЕННЯМИ, СПИСКАМИ в HTML-ДОКУМЕНТІ.</p>
+            <p>Мета: придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.
+                Створити шаблон звітного HTML-документом для відображення результатів роботи всіх лабораторних робіт.</p>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="results" class="content-section">
+            <pre>
+                &lt;table&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Послуги&lt;/th&gt;
+                        &lt;th&gt;Ціни&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Стрижка&lt;/td&gt;
+                        &lt;td&gt;₴400&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Підрівнювання бороди&lt;/td&gt;
+                        &lt;td&gt;₴200&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+             </pre>
+        </div>
+        <div id="discussion" class="content-section">
+            <pre>
+                &lt;form action="submit_booking.php" method="post"&gt;
+                    &lt;label for="service"&gt;Виберіть послугу:&lt;/label&gt;
+                    &lt;select name="service" id="service"&gt;
+                        &lt;option value="haircut"&gt;Стрижка&lt;/option&gt;
+                        &lt;option value="beard_trim"&gt;Підрівнювання бороди&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;label for="barber"&gt;Вибери перукаря:&lt;/label&gt;
+                    &lt;select name="barber" id="barber"&gt;
+                        &lt;option value="john_doe"&gt;Павло Мельник&lt;/option&gt;
+                        &lt;option value="jane_doe"&gt;Ігор Ткаченко&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;label for="date"&gt;Дата:&lt;/label&gt;
+                    &lt;input type="date" id="date" name="date" required&gt;
+                    
+                    &lt;label for="time"&gt;Час:&lt;/label&gt;
+                    &lt;input type="time" id="time" name="time" required&gt;
+                    &lt;input type="submit" value="Записатись"&gt;
+                &lt;/form&gt;
+                </pre>
+        </div>
+        <div id="conclusion" class="content-section">
+            <pre>
+                &lt;img src="barbershop-logo.png" alt="Barbershop Logo" style="width: 100px; height: 100px;"&gt;
+            </pre>
+        </div>
+        <div id="references" class="content-section">
+            <p>В рамках цієї лабораторної роботи я придбув навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.
+                Створив шаблон звітного HTML-документом для відображення результатів роботи всіх лабораторних робіт.</p>
+        </div>
+        <!-- Additional sections here -->
+    </div>
+    <div class="content-nav" id="contentNav2">
+        <div class="content-box" onclick="toggleVisibility('introduction2')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('styles')">Способи підключення стилів</div>
+        <div class="content-box" onclick="toggleVisibility('tagSelectors')">Селектори тегу</div>
+        <div class="content-box" onclick="toggleVisibility('classSelectors')">Селектори класів</div>
+        <div class="content-box" onclick="toggleVisibility('idSelectors')">Селектори ідентифікаторів</div>
+        <div class="content-box" onclick="toggleVisibility('otherSelectors')">Інші селектори</div>
+        <div class="content-box" onclick="toggleVisibility('css')">CSS</div>
+        <div class="content-box" onclick="toggleVisibility('conclusion2')">Висновки до ЛР2</div>
+        <!-- More boxes for lab #2 -->
+    </div>
+    <div class="sectionContent" id="sectionContent2">
+        <div id="introduction2" class="content-section">
+            <p>Тема: КАСКАДНІ ТАБЛИЦІ СТИЛІВ. СЕЛЕКТОРИ .ІДЕНТИФІКАТОРИ. СТИЛЬОВЕ
+                ОФОРМЛЕННЯ ТЕКСТОВИХ ЕЛЕМЕНТІВ В HTML-ДОКУМЕНТАХ.</p>
+            <p>Мета: придбати практичні навички роботи з селекторами, ідентифікаторами,
+                списками, різноманітними властивостями кольору і фону, зовнішними та
+                внутрішними відступами, плаваючими елементами, оформленням текстових
+                елементів</p>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+            </div>
+        <div id="styles" class="content-section">
+            <p>External:</p>
+                <pre>
+                    &lt;head&gt;
+                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                    &lt;/head&gt;
+                </pre>
+            <p>Internal:</p>
+                <pre>
+                    &lt;head&gt;
+                        &lt;style&gt;
+                                ...
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                </pre>
+            <p>Inline:</p>
+                <pre>
+                    &lt;p style="color: red; font-size: 20px;"&gt;...&lt;/p&gt;
+
+                </pre>
+            </div>
+
+        <div id="tagSelectors" class="content-section">
+            <pre><code>
+                header nav ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+                
+                header nav ul li {
+                    display: inline;
+                    margin-right: 20px;
+                }
+                
+                header nav ul li a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+                </code></pre>
+                <img src="report1.PNG" alt="result" style="width: 800px; height: 200px;"></img>
+            </div>
+        <div id="classSelectors" class="content-section">
+            <pre><code>
+            .header-content {
+                background: rgba(0, 0, 0, 0.7); 
+                border-radius: 80px; 
+                display: inline-block;
+                padding: 20px;
+                margin: auto; 
+                width: 60%; 
+                color: #fff;
+            }
+            </pre></code>
+            <img src="report1.PNG" alt="result" style="width: 800px; height: 200px;"></img>
+
+            </div>
+        <div id="idSelectors" class="content-section">
+            <pre><code>
+                #special-offers {
+                    background-color: #eff5f9; 
+                    border-radius: 20px;
+                }                
+            </pre></code>
+            <img src="report2.PNG" alt="result" style="width: 600px; height: 200px;"></img>
+            </div>
+        <div id="otherSelectors" class="content-section">
+            <p>Селектор атрибутів:</p>
+            <pre><code>
+                input[type="date"], input[type="time"], select {
+                    display: block;
+                    width: 180px;
+                    padding: 5px;
+                    margin-right: 20px; 
+                }
+            </pre></code>
+            <img src="report3.PNG" alt="result" style="width: 600px; height: 200px;"></img>
+            </div>
+        <div id="css" class="content-section">
+            <pre><code>
+                body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background: #f5f5f5;
+                    color: #333;
+                }
+                
+                header {
+                    background-image: url('banner.jpg');
+                    background-size: cover; 
+                    background-position: center;
+                    padding: 60px;
+                    text-align: center;
+                }
+                
+                .header-content {
+                    background: rgba(0, 0, 0, 0.7); 
+                    border-radius: 80px; 
+                    display: inline-block;
+                    padding: 20px;
+                    margin: auto; 
+                    width: 60%; 
+                    color: #fff;
+                }
+            </code></pre>
+
+
+            </div>
+        <div id="conclusion2" class="content-section">
+
+            <p>В результаті виконання лабораторної роботи №2 я отримав навички роботи з каскадною таблицею стилей.
+                Навчився працювати з селекторами класів, ідентифікаторів та тегів. Працювати з текстом, встановлювати шрифти, колір
+            </p>
+
+            </div>
+        <!-- Additional sections for lab #2 -->
+    </div>
+</div>
+
+<script>
+function showLab(labNumber) {
+    var allNavs = document.querySelectorAll('.content-nav');
+    var allSections = document.querySelectorAll('.content-section');
+
+    // Hide all sections and navs first
+    allNavs.forEach(nav => nav.style.display = 'none');
+    allSections.forEach(section => section.style.display = 'none');
+
+    // Show the relevant nav and sections for the selected lab
+    var selectedNav = document.getElementById('contentNav' + labNumber);
+    if (selectedNav) {
+        selectedNav.style.display = 'flex';
+        selectedNav.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'block'; // Optionally, keep them hidden until clicked
+        });
+    }
+}
+
+function toggleVisibility(sectionId) {
+    hideAllSections();
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.style.display = (section.style.display === 'none' ? 'block' : 'none');
+    }
+}
+
+function hideAllSections() {
+    var sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+}
+</script>
+</body>
+</html>
