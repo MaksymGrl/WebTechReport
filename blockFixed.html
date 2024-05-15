@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Block Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            font-size: 35px;
+        }
+        .container {
+            width: 600px; /* Fixed width */
+            height: 800px; /* Fixed height */
+            border: 3px solid black;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .header, .footer {
+            width: 99%;
+            height: 10%;
+            background-color: yellow;
+            border: 3px solid black;
+            position: relative;
+            display: block;
+            text-align: right;
+        }
+        .header .white-box {
+            width: 30%;
+            height: 50%;
+            background-color: white;
+            border: 3px solid black;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        .main-content {
+            display: flex;
+            height: 78.8%;
+        }
+        .block {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid black;
+        }
+        .sidebar-left {
+            background-color: blue;
+            margin-right: 20px;
+        }
+        .content-left, .content-right {
+            background-color: red;
+        }
+        .content-left{
+            margin-right: 20px;
+        }
+        .content-center {
+            background-color: white;
+            margin-right: 20px;
+        }
+        .footer {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            1
+            <div class="white-box"></div>
+        </div>
+        <div class="main-content">
+            <div class="block sidebar-left">2</div>
+            <div class="block content-left">3</div>
+            <div class="block content-center">4</div>
+            <div class="block content-right">5</div>
+        </div>
+        <div class="footer">6</div>
+    </div>
+</body>
+</html>

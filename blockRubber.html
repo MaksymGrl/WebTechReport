@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Block Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            font-size: 2vw;
+        }
+        .container {
+            width: 40%;
+            height: 90vh;
+            margin: 20px auto;
+            border: .3vh solid black;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction:column;
+        }
+        .header, .footer {
+            flex: 0 0 10%;
+            background-color: yellow;
+            border: 0.3vh solid black;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 3vh;
+            box-sizing: border-box;
+        }
+        .header .white-box {
+            width: 30%;
+            height: 50%;
+            background-color: white;
+            border: 0.3vh solid black;
+            position: absolute;
+            left: 3vh;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+        }
+        .block {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.3vh solid black;
+            box-sizing: border-box;
+        }
+        .sidebar-left {
+            background-color: blue;
+            margin-right: 5%;
+        }
+        .content-left, .content-right {
+            background-color: red;
+        }
+        .content-left{
+            margin-right: 5%;
+        }
+        .content-center {
+            background-color: white;
+            margin-right: 5%;
+        }
+        .footer {
+            justify-content: flex-start;
+            padding: 0 3vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            1
+            <div class="white-box"></div>
+        </div>
+        <div class="main-content">
+            <div class="block sidebar-left">2</div>
+            <div class="block content-left">3</div>
+            <div class="block content-center">4</div>
+            <div class="block content-right">5</div>
+        </div>
+        <div class="footer">6</div>
+    </div>
+</body>
+</html>

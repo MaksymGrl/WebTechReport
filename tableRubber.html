@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Table Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 3vh;
+        }
+        table {
+            width: 40%; /* Responsive width */
+            height: 80vh; /* Responsive height */
+            border-collapse: collapse;
+            border: 3px solid black;
+            margin: auto; /* Center the table on the page */
+        }
+        td {
+            border: none; /* Remove border from table cells */
+        }
+        .header {
+            height: 10%; /* Responsive height */
+            background-color: rgb(255, 204, 0);
+            border: 3px solid black;
+            position: relative;
+            text-align: end;
+            padding-right: 2%;
+        }
+        .header .white-box {
+            width: 30%;
+            height: 50%;
+            background-color: white;
+            border: 3px solid black;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+        }
+        .sidebar-left {
+            width: 20%; /* Responsive width */
+            padding-left: 0%;
+            
+        }
+        .sidebar-left .content {
+            background-color: blue;
+            padding-top: 60%;
+            height: 100%;
+            width: 100%;
+            border: 3px solid black;
+            border-left: 0px;
+        }
+
+
+        .sidebar-right {
+            width: 20%; /* Responsive width */
+        }
+        .sidebar-right .content {
+            background-color: blue;
+            padding-top: 20%;
+            height: 90%;
+            width: 90%;
+            margin: auto;
+            box-sizing: border-box; /* Ensure padding is included in height */
+            border: 3px solid black;
+        }
+        .main {
+            background-color: white;
+            position: relative;
+            width: 90%; /* Responsive width */
+            height: 90%; /* Responsive height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 3vh;
+        }
+        .main .frame {
+            padding-top: 10%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            box-sizing: border-box;
+            border: 3px solid rgb(149, 149, 149);
+        }
+        .main .frame .red-rect {
+            height: 20%; /* Responsive height */
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            border: 2px solid black;
+        }
+        .footer {
+            height: 10%; /* Responsive height */
+            background-color: rgb(255, 204, 0);
+            border: 3px solid black;
+            text-align: start;
+            padding-left: 2%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3" class="header">
+                1
+                <div class="white-box"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="sidebar-left">
+                <div class="content">2</div>
+            </td>
+            <td class="main">
+                <div class="frame">
+                    <div class="inner-content">3</div>
+                    <div class="red-rect"></div>
+                </div>
+            </td>
+            <td class="sidebar-right">
+                <div class="content">4</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="footer">5</td>
+        </tr>
+    </table>
+</body>
+</html>
