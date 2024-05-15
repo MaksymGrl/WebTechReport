@@ -68,6 +68,20 @@
         margin-left: 350px;
         
     }
+    .iframe-container {
+            width: 90%;
+            height: 90vh;
+            margin: 20px auto;
+            border: 3px solid black;
+            overflow: hidden;
+            position: relative;
+        }
+    .iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        transform-origin: top left;
+    }
 </style>
 </head>
 <body>
@@ -320,9 +334,707 @@
             </div>
         <!-- Additional sections for lab #2 -->
     </div>
+    <div class="content-nav" id="contentNav3">
+        <div class="content-box" onclick="toggleVisibility('methodology3')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('main1')">Зовнішній вигляд головної</div>
+        <div class="content-box" onclick="toggleVisibility('main2')">Код головної</div>
+        <div class="content-box" onclick="toggleVisibility('tableFixed')">Таблична фіксована</div>
+        <div class="content-box" onclick="toggleVisibility('tableRubber')">Таблична гумова</div>
+        <div class="content-box" onclick="toggleVisibility('blockFixed')">Блокова фіксована</div>
+        <div class="content-box" onclick="toggleVisibility('blockRubber')">Блокова гумова</div>
+        <div class="content-box" onclick="toggleVisibility('flexMain')">Flexbox головна</div>
+        <div class="content-box" onclick="toggleVisibility('flexHtml')">Flexbox html</div>
+        <div class="content-box" onclick="toggleVisibility('flexCss')">Flexbox css</div>
+        <div class="content-box" onclick="toggleVisibility('results3')">Висновки</div>
+    </div>
+    <div class="sectionContent" id="sectionContent3">
+        <div id="methodology3" class="content-section">
+            <p> Тема: ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА
+                ЗАСОБАМИ CSS та FLEXBOX.</p>
+            <p> Мета: Придбати практичні навички роботи верстки сторінок засобами CSS, верстки на
+                основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-
+                сторінок.
+                Придбати практичні навички роботи верстки сторінок засобами CSS та FLEXBOX</p>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="main1" class="content-section">
+            <img src="main1.PNG" alt="result" style="width: 1000px; height: 800px;"></img>
+        </div>
+        <div id="main2" class="content-section">
+            <pre>
+                <code>
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background: #f5f5f5;
+                        color: #333;
+                        box-sizing: border-box;
+                    }
+                    
+                    *, *::before, *::after {
+                        box-sizing: inherit;
+                    }
+                    
+                    header {
+                        background-image: url('banner.jpg');
+                        background-size: cover; 
+                        background-position: center;
+                        padding: 5%;
+                        text-align: center;
+                        width: 100%;
+                    }
+                    
+                    .header-content {
+                        background: rgba(0, 0, 0, 0.7); 
+                        border-radius: 20px; 
+                        display: inline-block;
+                        padding: 2%;
+                        margin: auto; 
+                        width: 80%; 
+                        max-width: 1000px;
+                        color: #fff;
+                    }
+                    
+                    header nav ul {
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    
+                    header nav ul li {
+                        display: inline;
+                        margin-right: 5%;
+                    }
+                    
+                    header nav ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                    
+                    header h1 {
+                        color: #fff;
+                    }
+                    
+                    main {
+                        padding: 5%;
+                        background: #fff;
+                    }
+                    
+                    section {
+                        margin-bottom: 20px;
+                    }
+                    
+                    h1, h2 {
+                        color: #000;
+                    }
+                    
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    
+                    table, th, td {
+                        border: 1px solid #ccc;
+                    }
+                    
+                    th, td {
+                        padding: 10px;
+                        text-align: left;
+                    }
+                    
+                    label, input, select {
+                        display: block;
+                        margin-bottom: 10px; 
+                        width: 100%;
+                    }
+                    
+                    input[type="date"], input[type="time"], select {
+                        padding: 5px;
+                    }
+                    
+                    input[type="submit"] {
+                        padding: 10px 20px; 
+                        background-color: #4CAF50;
+                        color: white; 
+                        border: none; 
+                        border-radius: 8px; 
+                        cursor: pointer; 
+                    }
+                    
+                    form {
+                        max-width: 600px; 
+                        margin: auto; 
+                    }
+                    
+                    footer {
+                        background-color: #222;
+                        color: #fff;
+                        text-align: center;
+                        padding: 20px;
+                        position: relative;
+                        bottom: 0;
+                        width: 100%;
+                    }
+                    
+                    footer ul {
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    
+                    footer ul li {
+                        display: inline;
+                        margin-right: 5%;
+                    }
+                    
+                    footer ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                    
+                    #special-offers {
+                        background-color: #e7e5e5; 
+                        border-radius: 20px;
+                        padding: 20px;
+                    }
+                    
+                    @media (max-width: 600px) {
+                        header nav ul li {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+                    
+                        footer ul li {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+                    
+                        .header-content {
+                            width: 90%; 
+                        }
+                    }
+                </code>
+            </pre>
+        </div>
+        <div id="tableFixed" class="content-section">
+            <div class="zoom-control">
+                <label for="zoom">Zoom: </label>
+                <input type="range" id="zoom" name="zoom" min="1" max="2" step="0.1" value="1" oninput="updateZoom(this.value)">
+            </div>
+            <div class="iframe-container">
+                <iframe class="iframe" src="tableFixed.html" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+        <div id="tableRubber" class="content-section">
+            <div class="zoom-control">
+                <label for="zoom">Zoom: </label>
+                <input type="range" id="zoom" name="zoom" min="1" max="2" step="0.1" value="1" oninput="updateZoom(this.value)">
+            </div>
+            <div class="iframe-container">
+                <iframe class="iframe" src="tableRubber.html" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+        <div id="blockFixed" class="content-section">
+            <div class="zoom-control">
+                <label for="zoom">Zoom: </label>
+                <input type="range" id="zoom" name="zoom" min="1" max="2" step="0.1" value="1" oninput="updateZoom(this.value)">
+            </div>
+            <div class="iframe-container">
+                <iframe class="iframe" src="blockFixed.html" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+        <div id="blockRubber" class="content-section">
+            <div class="zoom-control">
+                <label for="zoom">Zoom: </label>
+                <input type="range" id="zoom" name="zoom" min="1" max="2" step="0.1" value="1" oninput="updateZoom(this.value)">
+            </div>
+            <div class="iframe-container">
+                <iframe class="iframe" src="blockRubber.html" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+        <div id="flexMain" class="content-section">
+            <img src="flexMain.PNG" alt="flexMain" style="width: 1000px; height: 800px;"></img>
+        </div>
+        <div id="flexHtml" class="content-section">
+            <pre><code>
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;Responsive Web Layout&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;header class="header"&gt;
+                        &lt;div class="nav-item"&gt;&lt;a href="#"&gt;Форми навчання&lt;/a&gt;&lt;/div&gt;
+                        &lt;div class="nav-item"&gt;&lt;a href="#"&gt;Заходи&lt;/a&gt;&lt;/div&gt;
+                        &lt;div class="nav-item"&gt;&lt;a href="#"&gt;Про Академію&lt;/a&gt;&lt;/div&gt;
+                        &lt;div class="nav-item"&gt;&lt;a href="#"&gt;Контакти&lt;/a&gt;&lt;/div&gt;
+                        &lt;div class="nav-item"&gt;&lt;a href="#"&gt;Київ&lt;/a&gt;&lt;/div&gt;
+                    &lt;/header&gt;
+                    &lt;main class="main"&gt;
+                        &lt;section class="intro"&gt;
+                            &lt;div class="intro-text"&gt;
+                                &lt;h1&gt;Курс Програмування&lt;/h1&gt;
+                                &lt;h2&gt;Java з працевлаштуванням:&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;div class="intro-content"&gt;
+                                &lt;div class="intro-image"&gt;&lt;/div&gt;
+                                &lt;ul&gt;
+                                    &lt;li&gt;Стажування в IT-компанії&lt;/li&gt;
+                                    &lt;p&gt;...&lt;/p&gt;
+                                    &lt;li&gt;Три випускних проекти&lt;/li&gt;
+                                    &lt;p&gt;...&lt;/p&gt;
+                                    &lt;li&gt;Інтенсивність&lt;/li&gt;
+                                    &lt;p&gt;...&lt;/p&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/section&gt;
+                        &lt;section class="graduates"&gt;
+                            &lt;h2&gt;Більше 800 випускників&lt;/h2&gt;
+                            &lt;h3&gt;Досягли успіху у IT-сфері&lt;/h3&gt;
+                            &lt;div class="graduates-grid"&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;  
+                                &lt;/div&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="graduate"&gt;
+                                    &lt;div class="graduate-image"&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/section&gt;
+                        &lt;section class="faq"&gt;
+                            &lt;h2&gt;Чому варто нам довіряти?&lt;/h2&gt;
+                            &lt;h3&gt;Часті запитання&lt;/h3&gt;
+                            &lt;div class="faq-grid"&gt;
+                                &lt;div class="faq-column"&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;01 Гарантія працевлаштування?&lt;/h4&gt;
+                                        &lt;p&gt;Всі хто пройшов курс працевлаштовані.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;02 Що таке "повторення"?&lt;/h4&gt;
+                                        &lt;p&gt;Можливість повторного проходження курсу.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;03 Що таке "інкубатор"?&lt;/h4&gt;
+                                        &lt;p&gt;Інкубатор для запуску стартапів.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class="faq-image"&gt;&lt;/div&gt;
+                                &lt;div class="faq-column"&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;04 Рейтинг компаній?&lt;/h4&gt;
+                                        &lt;p&gt;Список компаній-партнерів з високим рейтингом.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;05 Розтермінування?&lt;/h4&gt;
+                                        &lt;p&gt;Можливість оплатити навчання частинами.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="faq-item"&gt;
+                                        &lt;h4&gt;06 Скільки триває курс?&lt;/h4&gt;
+                                        &lt;p&gt;Тривалість курсу.&lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/section&gt;
+                    &lt;/main&gt;
+                    &lt;footer class="footer"&gt;
+                        &lt;p&gt;Навчайся зараз, сплачуй потім&lt;/p&gt;
+                        &lt;p&gt;Розтермінування на 24 місяці&lt;/p&gt;
+                    &lt;/footer&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+                </code></pre>
+        </div>
+        <div id="flexCss" class="content-section">
+            <pre> <code>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: #f0f0f0;
+                    text-align: center;
+                }
+                
+                .header {
+                    background-color: #ffffff;
+                    color: #fff;
+                    padding: 10px 0;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 90%;
+                }
+                
+                .nav-item {
+                    margin: 0 10px;
+                    padding: 0.5% 5%;
+                    background-color: #000;
+                }
+                
+                .nav-item a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 18px;
+                }
+                
+                .main {
+                    padding: 20px;
+                }
+                
+                .intro {
+                    width: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 20px;
+                }
+                
+                .intro-text {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                
+                .intro-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    width: 90%;
+                }
+                
+                .intro-image {
+                    flex: 1 1 40%;
+                    min-width: 300px;
+                    background-color: #ddd;
+                    height: 300px;
+                    margin-right: 20px;
+                }
+                
+                .intro-content ul {
+                    flex: 1 1 40%;
+                    min-width: 300px;
+                    list-style:circle;
+                    padding: 0;
+                    text-align: left;
+                }
+                
+                .intro-content ul li {
+                    margin-bottom: 10px;
+                }
+                
+                .graduates {
+                    width: 90%;
+                    background-color: #333;
+                    color: #fff;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                }
+                
+                .graduates-grid {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                
+                .graduate {
+                    flex: 1 1 30%;
+                    min-width: 200px;
+                    margin: 10px;
+                    text-align: center;
+                }
+                
+                .graduate-image {
+                    background-color: #aaa;
+                    height: 200px;
+                    margin-bottom: 10px;
+                }
+                
+                .faq {
+                    padding: 20px;
+                }
+                
+                .faq-grid {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+                
+                .faq-column {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    min-width: 200px;
+                }
+                
+                .faq-item {
+                    background-color: #fff;
+                    padding: 20px;
+                    margin: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                
+                .faq-image {
+                    flex: 1 1 200px;
+                    background-color: #ddd;
+                    height: 400px;
+                    margin: 10px;
+                }
+                
+                
+                .footer {
+                    background-color: #ffa500;
+                    color: #000;
+                    padding: 20px;
+                    position: relative;
+                    width: 90%;
+                    margin: auto;
+                }
+                
+                .footer p {
+                    margin: 5px 0;
+                }
+            </code>
+            </pre>
+        </div>
+        <div id="results3" class="content-section">
+            <p> Завдання 1</p>
+            <p> В рамках першого завдання цієї лабораторної роботи був розроблен макет головної сторінки веб-застосунку.
+                Була використана блокова гумова верстка. Цей тип верстки зберігає пропорції між блоками та реагує на зміну розміра та співвідношення viewport.
+            </p>
+            <p> Завдання 2</p>
+            <p>В другому завданні були розроблени 4 макети відповідно до варіанту: табличний гумовий і фіксований, блоковий гумовий і фіксований. З цих макетів я отримав наступні висновки:
+            Блочна верстка є більш простою у реалізації та підходить до більшості макетів, але найкращим варіантом может бути використання обох типів.
+            Фіксована верстка є простішою у реалізації, порівняючи з гумовою, та надає можливість надати кращий дизайн на тергетному
+            екрані. Але є великий недолік - відсутність адаптивності, що робить гумову або змішану верстку більш бажаною.
+            </p>
+            <p> Завдання 3</p>
+            <p> Третє завдання присвячене використанню flexbox і верстці макета сайту за зразком. У результаті отримано макет, який відповідає вимогам, зразку і плавно реагує на зміну розміру екрана, що є плюсом цього типу верстки. 
+                З мінусів це складність у розробці та налаштуванні. </p>
+        </div>
+    </div>
+    <div class="content-nav" id="contentNav4">
+        <div class="content-box" onclick="toggleVisibility('methodology4')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('mobile')">Верстка для мобільної версії</div>
+        <div class="content-box" onclick="toggleVisibility('tablet')">Верстка для планшетної версії</div>
+        <div class="content-box" onclick="toggleVisibility('desktop')">Верстка для декстопної версії</div>
+        <div class="content-box" onclick="toggleVisibility('mobileResults')">Зовнішній вигляд мобільної версії</div>
+        <div class="content-box" onclick="toggleVisibility('desktopResults')">Зовнішній вигляд: декстопна та планшетна</div>
+        <div class="content-box" onclick="toggleVisibility('results4')">Висновки</div>
+
+    </div>
+    <div class="sectionContent" id="sectionContent4">
+        <div id="methodology4" class="content-section">
+            <p>Тема: АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT. СТРАТЕГІЯ MOBILE FIRST.  </p>
+            <p>Мета: Адаптивна верстка. Медіа-запити. Медіа-типи. Медіа-функції.Метатег viewport. Інструменти розробника. Стратегія Mobile First. </p>
+            <p>Завдання: Використовуючі медіа-запити та СSS- правила, для вибраних вами брейкпоінтів, виконати адаптивну верстку для :</p>
+            <ul>
+                <li>Десктопної версії</li>
+                <li>Планшетної версії</li>
+                <li>Мобільної версії</li>
+            </ul>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="mobile" class="content-section">
+            <pre><code>
+                @media (max-width: 600px) and (orientation: landscape) {
+                    main {
+                        padding: 3%;
+                    }
+                
+                    header h1 {
+                        font-size: 1.2em;
+                    }
+                }
+                
+                /* Mobile styles */
+                @media (max-width: 600px) {
+                    header nav ul li {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                
+                    footer ul li {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                
+                    .header-content {
+                        width: 90%;
+                    }
+                
+                    main {
+                        padding: 2%;
+                    }
+                
+                    header h1 {
+                        font-size: 1.5em;
+                    }
+                
+                    header nav ul li a {
+                        font-size: 1em;
+                    }
+                
+                    table, th, td {
+                        font-size: 0.8em;
+                    }
+                
+                    input[type="submit"] {
+                        padding: 8px 16px;
+                    }
+                
+                    form {
+                        padding: 0 5%;
+                    }
+                    select:focus {
+                        outline: none;
+                        border: 2px solid #4CAF50;
+                        background-color: #fff;
+                    }
+                }
+            </code>
+            </pre>
+        </div>
+        <div id="tablet" class="content-section">
+            <pre><code>
+                                /* Tablet styles */
+                @media (min-width: 601px) and (max-width: 1024px) {
+                    .header-content {
+                        width: 85%;
+                    }
+
+                    main {
+                        padding: 4%;
+                    }
+
+                    header nav ul li {
+                        margin-right: 3%;
+                    }
+
+                    header h1 {
+                        font-size: 2em;
+                    }
+
+                    header nav ul li a {
+                        font-size: 1.2em;
+                    }
+
+                    table, th, td {
+                        font-size: 1em;
+                    }
+
+                    input[type="submit"] {
+                        padding: 10px 20px;
+                    }
+
+                    form {
+                        padding: 0 10%;
+                    }
+                }
+
+            </code></pre>
+        </div>
+        <div id="desktop" class="content-section">
+            <pre><code>
+                            /* Desktop styles */
+            @media (min-width: 1025px) {
+                .header-content {
+                    width: 80%;
+                }
+
+                main {
+                    padding: 5%;
+                }
+
+                header nav ul li {
+                    margin-right: 5%;
+                }
+
+                header h1 {
+                    font-size: 2em;
+                }
+
+                header nav ul li a {
+                    font-size: 1.5em;
+                }
+
+                table, th, td {
+                    font-size: 1em;
+                }
+
+                input[type="submit"] {
+                    padding: 10px 20px;
+                }
+            </code></pre>
+        </div>
+        <div id="mobileResults" class="content-section">
+            <img src="mobile1.PNG" alt="result" style="width: 300px; height: 600px;"></img>
+            <img src="mobile2.PNG" alt="result" style="width: 600px; height: 400px;"></img>
+        </div>
+        <div id="desktopResults" class="content-section">
+            <img src="tablet.PNG" alt="result" style="width: 500px; height: 600px;"></img>
+            <img src="main1.PNG" alt="result" style="width: 800px; height: 600px;"></img>
+        </div>
+        <div id="results4" class="content-section">
+            <p> В рамках четвертої лабораторної роботи, з використанням адаптивної верстки, були розроблені декілька версій веб-застосунку, в залежності від пристроя користувача.</p>
+            <p>Вигляд на мобільних пристроях:</p>
+            <ul>
+                <li>Елементи навігації розташовуються вертикально з нижнім відступом 10px.</li>
+                <li>Посилання в нижньому колонтитулі також розташовуються вертикально з відступом знизу 10 пікселів.</li>
+                <li>Ширина контенту хедера зменшена до 90%, щоб відповідати меншим екранам.</li>
+                <li>Відступ основного контенту зменшено до 2%.</li>
+                <li>Розміри шрифтів зменшено для заголовка, навігаційних посилань та вмісту таблиць.</li>
+                <li>Відступи форм зменшено для кращого пристосування до екрану.</li>
+                <li>Вибрані елементи стилізовано, щоб підкреслити фокус.</li>
+            </ul>
+            <p>Вигляд на плашетах:</p>
+            <ul>
+                <li>Ширина вмісту заголовка встановлена на 85%.</li>
+                <li>Відступ основного контенту збільшено до 4%.</li>
+                <li>Зменшено відступ праворуч для елементів навігації до 3%.</li>
+                <li>Збільшено розміри шрифтів для заголовків, навігаційних посилань і вмісту таблиць для кращого використання екранного простору.</li>
+                <li>Відступ форм налаштовано на 10% для кращого макетування.</li>
+            </ul>
+            <p>Вигляд на десктопах
+            <ul>
+                <li>Ширина вмісту заголовка - 80%.</li>
+                <li>Відступ основного контенту встановлений на 5%.</li>
+                <li>Відступ праворуч для елементів навігації - 5%.</li>
+                <li>Більший розмір шрифту для заголовка, навігаційних посилань і вмісту таблиць для кращої читабельності на великих екранах.</li>
+            </ul>
+
+
+            
+        </div>
 </div>
 
 <script>
+function updateZoom(value) {
+        var allIfames = document.querySelectorAll('.iframe')
+        allIfames.forEach(iframe => iframe.style.width = `${100 / value}%`)
+        allIfames.forEach(iframe => iframe.style.height = `${100 / value}%`)
+    }
+
 function showLab(labNumber) {
     var allNavs = document.querySelectorAll('.content-nav');
     var allSections = document.querySelectorAll('.content-section');
