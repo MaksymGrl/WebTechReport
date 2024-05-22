@@ -82,7 +82,75 @@
         border: none;
         transform-origin: top left;
     }
+
+    #arrays-container {
+    text-align: center;
+    margin-top: 50px;
+    }
+
+    #output {
+        margin-top: 20px;
+    }
+    .editor-container {
+    margin-bottom: 20px;
+    }
+
+    .toolbar {
+        margin-bottom: 10px;
+    }
+
+    .toolbar button, .toolbar select {
+        margin-right: 5px;
+    }
+
+    .editor, .output {
+        border: 1px solid #ccc;
+        padding: 10px;
+        min-height: 200px;
+    }
+
+    .editor:focus {
+        outline: none;
+    }
+
+    .output {
+        background-color: #f9f9f9;
+    }
+    .container {
+        border: 2px solid black;
+        border-radius: 5px;
+        min-width: 500px;
+        background-color: #8FBC8F;
+        min-height: 200px;
+        }
+    .button {
+        margin-right: 10px;
+    }
+    .square {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed red;
+            margin-bottom: 10px;
+        }
+    #controls {
+        margin-bottom: 20px;
+    }
+    #boxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    #boxes div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 </style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 <div class="header">
@@ -95,10 +163,11 @@
     <div class="lab-box" onclick="showLab(3)">Lab #3</div>
     <div class="lab-box" onclick="showLab(4)">Lab #4</div>
     <div class="lab-box" onclick="showLab(5)">Lab #5</div>
-    <div class="lab-box" onclick="showLab(6)">Lab #6</div>
-    <div class="lab-box" onclick="showLab(7)">Lab #7</div>
-    <div class="lab-box" onclick="showLab(8)">Lab #8</div>
-    <div class="lab-box" onclick="showLab(9)">Lab #9</div>
+    <div class="lab-box" onclick="showLab(6)">Lab #5.1</div>
+    <div class="lab-box" onclick="showLab(7)">Lab #6</div>
+    <div class="lab-box" onclick="showLab(8)">Lab #7</div>
+    <div class="lab-box" onclick="showLab(9)">Lab #8</div>
+    <div class="lab-box" onclick="showLab(10)">Lab #9</div>
 </div>
 <div class="main">
     <div class="content-nav" id="contentNav1">
@@ -133,8 +202,7 @@
             <p>Подарункові картки та ваучери: Дозволяє купувати подарункові картки через сайт.</p>
             </div>
         <div id="methodology" class="content-section">
-            <p>Тема: СТРУКТУРА HTML-ДОКУМЕНТА. ВИБІР ПРЕДМЕТНОЇ ГАЛУЗІ.
-                РОБОТА З ПОСИЛАННЯМИ, ТАБЛИЦЯМИ, ЗОБРАЖЕННЯМИ, СПИСКАМИ в HTML-ДОКУМЕНТІ.</p>
+            <p>Тема: Створення html документа для веб застосунку "Барбершоп"</p>
             <p>Мета: придбати практичні навички роботи з HTML-документом, таблицями, зображеннями, посиланнями, списками, формами.
                 Створити шаблон звітного HTML-документом для відображення результатів роботи всіх лабораторних робіт.</p>
             <p>Місце розташування:</p>
@@ -202,7 +270,6 @@
         <div class="content-box" onclick="toggleVisibility('otherSelectors')">Інші селектори</div>
         <div class="content-box" onclick="toggleVisibility('css')">CSS</div>
         <div class="content-box" onclick="toggleVisibility('conclusion2')">Висновки до ЛР2</div>
-        <!-- More boxes for lab #2 -->
     </div>
     <div class="sectionContent" id="sectionContent2">
         <div id="introduction2" class="content-section">
@@ -1026,47 +1093,591 @@
 
             
         </div>
+    </div>
+    <div class="content-nav" id="contentNav5">
+        <div class="content-box" onclick="toggleVisibility('methodology5')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('5Task1')">Завдання 1</div>
+        <div class="content-box" onclick="toggleVisibility('5Task2')">Завдання 2</div>
+        <div class="content-box" onclick="toggleVisibility('results5')">Висновки</div>
+
+    </div>
+    <div class="sectionContent" id="sectionContent5">
+        <div id="methodology5" class="content-section">
+            <p>Тема: ФУНКЦІОНАЛЬНЕ ЗАСТОСУВАННЯ JAVASCRIPT У HTML-ДОКУМЕНТІ. ВИКОРИСТАННЯ МАСИВІВ У JS-СЦЕНАРІЯХ. РЕАЛІЗАЦІЯ ПРОГРАМ ЗАСОВАМИ МОВИ JAVASCRIPT</p>
+            <p>Мета: придбати практичні навички роботи з масивами у js-сценаріях.  Реалізація програм засобами мови JAVASCRIPT </p>
+            <p>Завдання: Використовуючі медіа-запити та СSS- правила, для вибраних вами брейкпоінтів, виконати адаптивну верстку для :</p>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="5Task1" class="content-section">
+            <p>1.Задані одновимірні масиви А, В з 10 чисел. Побудувати масив С, кожний елемент якого обчислюється за формулою:</p>
+            <p>
+                $$ C_i = \begin{cases} 
+                \frac{1}{a_i - b_i}, & \text{if } a_i \ne b_i \\ 
+                1, & \text{if } a_i = b_i 
+                \end{cases} $$
+            </p>
+            <p>
+            2. В масиві С поміняти максимальний елемент і перший. Вивести масиви до переставлення елементів та після.
+            Упорядкувати масив у порядку зростання методом бульбашки. Надрукувати вхідний та вихідний масив.
+            Застосувати функції.
+            </p>
+
+            <div id="arrays-container">
+                <h1>Операції з масивами</h1>
+                <button onclick="performOperations()">Виконати операціїї</button>
+                <div id="output"></div>
+            </div>
+
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+
+                const A = [2, 4, 6, 8, 10, 12, 14, 16, 9, 20];
+                const B = [4, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                function calculateC(A, B) {
+                    return A.map((a, i) => {
+                        let value = a !== B[i] ? 1 / (a - B[i]) : 1;
+                        return parseFloat(value.toFixed(3));
+                    });
+                }
+
+                function swapMaxAndFirst(arr) {
+                    let maxIndex = 0;
+                    for (let i = 1; i < arr.length; i++) {
+                        if (arr[i] > arr[maxIndex]) {
+                            maxIndex = i;
+                        }
+                    }
+                    [arr[0], arr[maxIndex]] = [arr[maxIndex], arr[0]];
+                }
+
+                function bubbleSort(arr) {
+                    let len = arr.length;
+                    for (let i = 0; i < len; i++) {
+                        for (let j = 0; j < len - 1; j++) {
+                            if (arr[j] > arr[j + 1]) {
+                                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                            }
+                        }
+                    }
+                }
+
+                function performOperations() {
+                    const C = calculateC(A, B);
+                    const originalC = [...C];
+
+                    swapMaxAndFirst(C);
+                    const swappedC = [...C];
+
+                    bubbleSort(C);
+                    const sortedC = [...C];
+                }
+            </code></pre>
+        </div>
+        <div id="5Task2" class="content-section">
+            <p>
+            Реалізувати редактор, який би дозволяв виконувати форматування тексту, який уводиться. Обов‘язкові елементи форматування: напівжирність, нахил, підкреслювання, колір тексту, регістр символів. 
+            Елементи форматування мають бути доступними через відповідні кнопки, форматований текст – у окремому вікні на сторінці. 
+            </p>
+            <div class="editor-container">
+                <div class="toolbar">
+                    <button onclick="formatText('bold')">Bold</button>
+                    <button onclick="formatText('italic')">Italic</button>
+                    <button onclick="formatText('underline')">Underline</button>
+                    <select onchange="changeColor(this.value)">
+                        <option value="">Text Color</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                    </select>
+                    <button onclick="changeCase('uppercase')">Uppercase</button>
+                    <button onclick="changeCase('lowercase')">Lowercase</button>
+                    <button onclick="formatText('normal')">Normal</button>
+                </div>
+                <div contenteditable="true" id="editor" class="editor"></div>
+            </div>
+            <div class="output-container">
+                <h3>Форматований текст:</h3>
+                <div id="output2" class="output"></div>
+            </div>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+                let output = document.getElementById('output2');
+                document.getElementById('editor').addEventListener('input', updateOutput);
+                
+            
+                function formatText(style) {
+                    const editor = document.getElementById('editor');
+                    let selectedText = window.getSelection().toString();
+                    if (!selectedText) return;
+            
+                    let newText = '';
+            
+                    switch (style) {
+                        case 'bold':
+                            newText = `&lt;strong&gt;${selectedText}&lt;/strong&gt;`;
+                            break;
+                        case 'italic':
+                            newText = `&lt;em&gt;${selectedText&lt;/em&gt;`;
+                            break;
+                        case 'underline':
+                            newText = `&lt;u&gt;${selectedText}&lt;/u&gt;`;
+                            break;
+                        case 'normal':
+                            newText = selectedText.replace(/<\/?[^>]+(>|$)/g, "");
+                            break;
+                    }
+            
+                    output.innerHTML = editor.innerHTML.replace(selectedText, newText);
+                }
+            
+                function changeColor(color) {
+                    const editor = document.getElementById('editor');
+                    let selectedText = window.getSelection().toString();
+                    if (!selectedText) return;
+            
+                    let newText = `&lt;span style="color: ${color};"&gt;${selectedText}&lt;/span&gt;`;
+                    output.innerHTML = editor.innerHTML.replace(selectedText, newText);
+            
+                }
+            
+                function changeCase(caseType) {
+                    const editor = document.getElementById('editor');
+                    let selectedText = window.getSelection().toString();
+                    if (!selectedText) return;
+            
+                    let newText = '';
+                    if (caseType === 'uppercase') {
+                        newText = selectedText.toUpperCase();
+                    } else if (caseType === 'lowercase') {
+                        newText = selectedText.toLowerCase();
+                    }
+            
+                    output.innerHTML = editor.innerHTML.replace(selectedText, newText);
+                }
+            
+                function updateOutput() {
+                    const editorContent = document.getElementById('editor').innerHTML;
+                    output.innerHTML = editorContent
+                }
+            </code></pre>
+        </div>
+        <div id="results5" class="content-section">
+            <p>В рамкаї цієї лабораторної роботи я придбав навички роботи з масивами у js-сценаріях та реалізував 2 завдання виокристовуючи мову Javascript</p>
+        </div>
+    </div>
+    <div class="content-nav" id="contentNav6">
+        <div class="content-box" onclick="toggleVisibility('methodology5.1')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('5.1Task1')">Завдання 2</div>
+        <div class="content-box" onclick="toggleVisibility('5.1Task2')">Завдання 4</div>
+        <div class="content-box" onclick="toggleVisibility('5.1Task3')">Завдання 6</div>
+        <div class="content-box" onclick="toggleVisibility('5.1Task4')">Завдання 8</div>
+        <div class="content-box" onclick="toggleVisibility('5.1Task5')">Завдання 10</div>
+        <div class="content-box" onclick="toggleVisibility('results5.1')">Висновки</div>
+
+    </div>
+    <div class="sectionContent" id="sectionContent6">
+        <div id="methodology5.1" class="content-section">
+            <p>Тема: ОБ'ЄКТ. МЕТОДИ ОБ'ЄКТА. МАСИВ ОБ'ЄКТІВ. ДЕСТРУКТУРИЗАЦІЯ ОБ'ЄКТІВ. CALLBACK. СТРІЛОЧНІ ФУНКЦІЇ. СТРІЛОЧНІ ФУНКЦІЇ ЯК КОЛБЕКИ.  </p>
+            <p>Мета: придбати практичні навички роботи з об'єктами. Методи об'єкта. Callback. Стрілочні функції. Стрілочні функції як колбеки. Реалізація програм засобами мови JAVASCRIPT</p>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="5.1Task1" class="content-section">
+            <p>Напишіть функцію getProductDetails, яка приймає ідентифікатор товару productId та дві колбек-функції successCallback та errorCallback.</p>
+
+            <p> Функція getProductDetails повинна отримати деталі про вказаний товар та передати їх у successCallback.</p>
+
+            <p> У випадку якщо товар не знайдено, викликається errorCallback і передається повідомлення про помилку.</p>
+
+            <pre><code>
+                function getProductDetails(productId, successCallback, errorCallback) {
+                    const product = products[productId];
+                
+                    if (product) {
+                        successCallback(product);
+                    } else {
+                        errorCallback(`Product with ID ${productId} not found.`);
+                    }
+                }
+                
+                // Приклад використання функції
+                getProductDetails(1, 
+                    (product) => { console.log('Product details:', product); }, 
+                    (error) => { console.error('Error:', error); }
+                );
+            </code></pre>
+        </div>
+        <div id="5.1Task2" class="content-section">
+            <p>З об'єкту concerts отримати масив, який буде містити лише імена міст.</p>
+            <p>З масиву потрібно прибрати міста, в яких концерт  уже пройшов і відсортувати їх у хронологічному порядку.</p>
+            <p>Результат вивести у консоль.</p>
+            <p>Очікуваний результат ["Одеса", "Умань", "Харків"]</p>
+            <p>Застосувати стрілочні функції</p>
+
+            <pre><code>
+                const concerts = {
+                    Київ: new Date("2020-04-01"),
+                    Умань: new Date("2025-07-02"),
+                    Вінниця: new Date("2020-04-21"),
+                    Одеса: new Date("2025-03-15"),
+                    Хмельницький: new Date("2020-04-18"),
+                    Харків: new Date("2025-07-10"),
+                };
+                
+                const currentDate = new Date();
+                
+                const upcomingConcertCities = Object.entries(concerts)
+                    .filter(([city, date]) => date > currentDate)
+                    .sort(([, dateA], [, dateB]) => dateA - dateB)
+                    .map(([city]) => city);
+                
+                console.log(upcomingConcertCities);
+            </code></pre>
+        </div>
+        <div id="5.1Task3" class="content-section">
+            <p>Напишіть функцію, яка приймає массив об'єктів і повертає новий массив об'єктів,у якому є знижка на  30 % на всі медикаменти ціна, яких перевищує 300 грн у масиві Надайте ід для кожного медикамента 
+            </p>
+                <pre><code>
+                const medicines = [
+                { name: "Noshpa", price: 170 },
+                { name: "Analgin", price: 55 },
+                { name: "Quanil", price: 310 },
+                { name: "Alphacholine", price: 390 },
+                ];
+
+            const applyDiscountAndAddId = (medicines) => {
+                return medicines.map((medicine, index) => {
+                    let discountedPrice = medicine.price;
+
+                    if (medicine.price > 300) {
+                        discountedPrice = medicine.price * 0.7; // Знижка 30%
+                    }
+
+                    return {
+                        id: index + 1,
+                        name: medicine.name,
+                        price: discountedPrice.toFixed(2) // Обмежуємо до двох знаків після коми
+                    };
+                });
+            };
+
+            const discountedMedicines = applyDiscountAndAddId(medicines);
+            console.log("5.1 task 3");
+            console.log(discountedMedicines);
+            </code></pre>
+        </div>
+        <div id="5.1Task4" class="content-section">
+            <p>Напиши функцію конструктор Storage який створює об'єкти  Для управління складом товарів.  При виклику отримуватиме один агрумент - початковий масив товарів,  і записувати їх у властивість items.</p>
+            <p>Додай методи класу:   getItems() - повертайте масив товарів   addItems(item) - отримує новий товар та додає його до поточних   removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних</p>
+            <p>const arr = ["apple", "banana", "mango"]</p>
+
+            <pre><code>
+                function Storage(initialItems) {
+                    this.items = initialItems;
+                
+                    this.getItems = function() {
+                        return this.items;
+                    };
+                
+                    this.addItem = function(item) {
+                        this.items.push(item);
+                    };
+                
+                    this.removeItem = function(item) {
+                        const index = this.items.indexOf(item);
+                        if (index !== -1) {
+                            this.items.splice(index, 1);
+                        }
+                    };
+                }
+                
+                const arr = ["apple", "banana", "mango"];
+                const storage = new Storage(arr);
+                
+                // Використання методів
+                console.log(storage.getItems()); 
+                
+                storage.addItem("orange");
+                console.log(storage.getItems());
+                
+                storage.removeItem("banana");
+                console.log(storage.getItems());
+            </code></pre>
+        </div>
+        <div id="5.1Task5" class="content-section">
+            <p>Напишіть функцію checkBrackets(str) яка приймає рядок жс коду (someFn)  і перевіряє правильність закриття дужок () {} []</p>
+            <p>Якщо рядок містить коректний код функція повертає true.</p>
+            <p> В іншому випадку повертає false</p>
+
+            <pre><code>
+                function checkBrackets(str) {
+                    const stack = [];
+                    const brackets = {
+                        '(': ')',
+                        '{': '}',
+                        '[': ']'
+                    };
+            
+                    for (let char of str) {
+                        if (brackets[char]) {
+                            // Якщо символ - це відкрита дужка, додаємо її до стека
+                            stack.push(char);
+                        } else if (Object.values(brackets).includes(char)) {
+                            // Якщо символ - це закрита дужка, перевіряємо чи відповідає вона останній відкритій дужці
+                            if (brackets[stack.pop()] !== char) {
+                                return false;
+                            }
+                        }
+                    }
+            
+                    // Якщо стек порожній, то всі дужки правильно закриті
+                    return stack.length === 0;
+                }
+            
+                // Приклади використання
+                console.log(checkBrackets("function someFn() { return { key: 'value' }; }")); // true
+                console.log(checkBrackets("function someFn() { return { key: 'value' }"));   // false
+                console.log(checkBrackets("if (a > b) { console.log(a); } else { console.log(b); }")); // true
+                console.log(checkBrackets("[{()}]")); // true
+                console.log(checkBrackets("[{(])}")); // false
+            </code></pre>
+        </div>
+        <div id="results5.1" class="content-section">
+            <p> В рамках цієї лабораторної роботи я придбав практичні навички роботи з об'єктами та їх методами, callback та стрілочними функціями. Мною було реалізовано 5 завдань засобами мови JAVASCRIPT</p>
+        </div>
+    </div>
+    <div class="content-nav" id="contentNav7">
+        <div class="content-box" onclick="toggleVisibility('methodology6')">Тема, мета, місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('6Task2')">Завдання 2</div>
+        <div class="content-box" onclick="toggleVisibility('6Task4')">Завдання 4</div>
+        <div class="content-box" onclick="toggleVisibility('6Task6')">Завдання 6</div>
+        <div class="content-box" onclick="toggleVisibility('6Task8')">Завдання 8</div>
+        <div class="content-box" onclick="toggleVisibility('6Task9')">Завдання 9</div>
+        <div class="content-box" onclick="toggleVisibility('6Task10')">Завдання 10</div>
+        <div class="content-box" onclick="toggleVisibility('results6')">Висновки</div>
+
+    </div>
+    <div class="sectionContent" id="sectionContent7">
+        <div id="methodology6" class="content-section">
+            <p>Тема: АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT. СТРАТЕГІЯ MOBILE FIRST.  </p>
+            <p>Мета: Адаптивна верстка. Медіа-запити. Медіа-типи. Медіа-функції.Метатег viewport. Інструменти розробника. Стратегія Mobile First. </p>
+            <p>Завдання: Використовуючі медіа-запити та СSS- правила, для вибраних вами брейкпоінтів, виконати адаптивну верстку для :</p>
+            <ul>
+                <li>Десктопної версії</li>
+                <li>Планшетної версії</li>
+                <li>Мобільної версії</li>
+            </ul>
+            <p>Місце розташування:</p>
+            <a href="https://github.com/MaksymGrl/WebTechBarbershop" target="_blank">Застосунок</a>
+            <a href="https://github.com/MaksymGrl/WebTechReport" target="_blank">Звіт</a>
+            <a href="https://github.com/MaksymGrl/WebTechResume" target="_blank">Резюме</a>
+        </div>
+        <div id="6Task2" class="content-section">
+            <div class="container">
+                <h2>ЗАВДАННЯ 2</h2>
+                <button id="6swapButton" class="button">SWAP ME</button>
+                <input type="text" id="6input1" value="???">
+                <input type="text" id="6input2" value="!!!">
+            </div>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+            document.getElementById('6swapButton').addEventListener('click', function() {
+                const input1 = document.getElementById('6input1');
+                const input2 = document.getElementById('6input2');
+                const temp = input1.value;
+                input1.value = input2.value;
+                input2.value = temp;
+            });
+            </code></pre>
+
+        </div>
+        <div id="6Task4" class="content-section">
+            <div class="container">
+                <h2>ЗАВДАННЯ 4</h2>
+                <div id="square" class="square"></div>
+                <button id="decreaseButton" class="button">Зменшити</button>
+                <button id="increaseButton" class="button">Збільшити</button>
+            </div>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+                const square = document.getElementById('square');
+                const decreaseButton = document.getElementById('decreaseButton');
+                const increaseButton = document.getElementById('increaseButton');
+                
+                decreaseButton.addEventListener('click', () => {
+                    const currentWidth = square.offsetWidth;
+                    const currentHeight = square.offsetHeight;
+                    square.style.width = `${currentWidth - 15}px`;
+                    square.style.height = `${currentHeight - 15}px`;
+                });
+                
+                increaseButton.addEventListener('click', () => {
+                    const currentWidth = square.offsetWidth;
+                    const currentHeight = square.offsetHeight;
+                    square.style.width = `${currentWidth + 15}px`;
+                    square.style.height = `${currentHeight + 15}px`;
+                });
+
+            </code></pre>
+        </div>
+        <div id="6Task6" class="content-section">
+            <div class="container">
+                <h2>ЗАВДАННЯ 6</h2>
+                <ul id="numberList">
+                    <li>1</li>
+                    <li>4</li>
+                    <li>8</li>
+                    <li>16</li>
+                    <li>20</li>
+                    <li>30</li>
+                </ul>
+                <button id="6doubleButton" class="button">Подвоїти</button>
+            </div>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+                const doubleButton = document.getElementById('6doubleButton');
+                const numberListItems = document.querySelectorAll('#numberList li');
+                
+                doubleButton.addEventListener('click', () => {
+                numberListItems.forEach(item => {
+                item.textContent = Number(item.textContent) * 2;
+                });
+                });
+            </code></pre>
+        </div>
+        <div id="6Task8" class="content-section">
+            <form class="login-form">
+                <label>
+                    Email
+                    <input type="email" name="email" />
+                </label>
+                <label>
+                    Password
+                    <input type="password" name="password" />
+                </label>
+                <button type="submit">Log in</button>
+            </form>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+                document.querySelector('.login-form').addEventListener('submit', function(event) {
+                    event.preventDefault(); 
+                
+                    const form = event.currentTarget;
+                    const email = form.elements.email.value.trim();
+                    const password = form.elements.password.value.trim();
+                
+                    if (email === '' || password === '') {
+                        alert('All form fields must be filled in');
+                        return;
+                    }
+                
+                    const formData = {
+                        email: email,
+                        password: password,
+                    };
+                
+                    console.log(formData);
+                
+                    form.reset();
+                });
+                
+            </code></pre>
+        </div>
+        <div id="6Task9" class="content-section">
+            <div class="widget">
+                <p>Background color: <span class="color">-</span></p>
+                <button type="button" class="change-color">Change color</button>
+            </div>
+            <p>Код:</p>
+            <pre><code>
+                const changeColorButton = document.querySelector('.change-color');
+                const colorSpan = document.querySelector('.color');
+                const body = document.body;
+
+                changeColorButton.addEventListener('click', () => {
+                    const newColor = getRandomHexColor();
+                    body.style.backgroundColor = newColor;
+                    colorSpan.textContent = newColor;
+                });
+            </pre></code>
+        </div>
+        <div id="6Task10" class="content-section">
+            <div id="controls">
+                <input type="number" min="1" max="100" step="1" />
+                <button type="button" data-create>Create</button>
+                <button type="button" data-destroy>Destroy</button>
+            </div>
+            <div id="boxes"></div>
+            <p></p>
+            <p>Код:</p>
+            <pre><code>
+                const controls = document.getElementById('controls');
+                const input = controls.querySelector('input');
+                const createButton = controls.querySelector('[data-create]');
+                const destroyButton = controls.querySelector('[data-destroy]');
+                const boxesContainer = document.getElementById('boxes');
+
+                createButton.addEventListener('click', () => {
+                    const amount = parseInt(input.value, 10);
+                    if (amount >= 1 && amount <= 100) {
+                        createBoxes(amount);
+                        input.value = ''; // Очищення значення інпуту
+                    } else {
+                        alert('Please enter a number between 1 and 100.');
+                    }
+                });
+
+                destroyButton.addEventListener('click', destroyBoxes);
+
+                function createBoxes(amount) {
+                    // Очищення контейнера перед створенням нових елементів
+                    destroyBoxes();
+
+                    const boxesFragment = document.createDocumentFragment();
+                    let size = 30;
+
+                    for (let i = 0; i < amount; i++) {
+                        const box = document.createElement('div');
+                        box.style.width = `${size}px`;
+                        box.style.height = `${size}px`;
+                        box.style.backgroundColor = getRandomHexColor();
+                        size += 10;
+                        boxesFragment.appendChild(box);
+                    }
+
+                    boxesContainer.appendChild(boxesFragment);
+                }
+
+                function destroyBoxes() {
+                    boxesContainer.innerHTML = '';
+                }
+
+                function getRandomHexColor() {
+                    return `#${Math.floor(Math.random() * 16777215)
+                        .toString(16)
+                        .padStart(6, '0')}`;
+                }
+                                
+            </code></pre>
+        </div>
+
+    </div>
 </div>
 
-<script>
-function updateZoom(value) {
-        var allIfames = document.querySelectorAll('.iframe')
-        allIfames.forEach(iframe => iframe.style.width = `${100 / value}%`)
-        allIfames.forEach(iframe => iframe.style.height = `${100 / value}%`)
-    }
 
-function showLab(labNumber) {
-    var allNavs = document.querySelectorAll('.content-nav');
-    var allSections = document.querySelectorAll('.content-section');
 
-    // Hide all sections and navs first
-    allNavs.forEach(nav => nav.style.display = 'none');
-    allSections.forEach(section => section.style.display = 'none');
-
-    // Show the relevant nav and sections for the selected lab
-    var selectedNav = document.getElementById('contentNav' + labNumber);
-    if (selectedNav) {
-        selectedNav.style.display = 'flex';
-        selectedNav.querySelectorAll('.content-section').forEach(section => {
-            section.style.display = 'block'; // Optionally, keep them hidden until clicked
-        });
-    }
-}
-
-function toggleVisibility(sectionId) {
-    hideAllSections();
-    var section = document.getElementById(sectionId);
-    if (section) {
-        section.style.display = (section.style.display === 'none' ? 'block' : 'none');
-    }
-}
-
-function hideAllSections() {
-    var sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
-}
-</script>
+<script src="scripts.js"></script>
 </body>
 </html>
