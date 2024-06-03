@@ -61,7 +61,7 @@
         padding: 10px;
         margin-top: 10px;
         text-align: left;
-        outline: auto;
+        outline: none;
         width: 1100px;
     }
     .sectionContent {
@@ -1673,6 +1673,451 @@
             </code></pre>
         </div>
 
+    </div>
+
+    <div class="content-nav" id="contentNav8">
+        <div class="content-box" onclick="toggleVisibility('Lab7intro')">Місце розташування</div>
+        <div class="content-box" onclick="toggleVisibility('Lab7gallery')">Галерея</div>
+        <div class="content-box" onclick="toggleVisibility('Lab7form')">Форма</div>
+        <div class="content-box" onclick="toggleVisibility('Lab7code')">Код</div>
+    </div>
+
+    <div class="sectionContent" id="sectionContent8">
+        <div id="Lab7intro" class="content-section">
+            <p>https://maksymgrl.github.io/FrontBarberGallery/</p>
+        </div>
+        <div id="Lab7gallery" class="content-section">
+            <img src="lab7.1.PNG" alt="result" style="width: 800px; height: 400px;"></img>
+        </div>
+        <div id="Lab7form" class="content-section">
+            <img src="lab7.2.PNG" alt="result" style="width: 400px; height: 400px;"></img>
+        </div>
+        <div id="Lab7code" class="content-section">
+            <P>Галерея:</P>
+            <pre><code>
+                            const images = [
+                {
+                    preview: './photos/barber1.png',
+                    original: './photos/barber1.png',
+                    description: 'Barber Shop 1',
+                },
+                {
+                    preview: './photos/barber2.jpg',
+                    original: './photos/barber2.jpg',
+                    description: 'Barber Shop 2',
+                },
+                {
+                    preview: './photos/barber3.jpeg',
+                    original: './photos/barber3.jpeg',
+                    description: 'Barber Shop 3',
+                },
+                {
+                    preview: './photos/barber4.jpeg',
+                    original: './photos/barber4.jpeg',
+                    description: 'Barber Shop 4',
+                },
+                {
+                    preview: './photos/barber5.jpeg',
+                    original: './photos/barber5.jpeg',
+                    description: 'Barber Shop 5',
+                },
+                {
+                    preview: './photos/barber6.jpeg',
+                    original: './photos/barber6.jpeg',
+                    description: 'Barber Shop 6',
+                },
+                {
+                    preview: './photos/barber7.jpeg',
+                    original: './photos/barber7.jpeg',
+                    description: 'Barber Shop 7',
+                },
+                {
+                    preview: './photos/barber8.jpeg',
+                    original: './photos/barber8.jpeg',
+                    description: 'Barber Shop 8',
+                },
+                {
+                    preview: './photos/barber9.jpeg',
+                    original: './photos/barber9.jpeg',
+                    description: 'Barber Shop 9',
+                },
+                {
+                    preview: './photos/barber10.jpg',
+                    original: './photos/barber10.jpg',
+                    description: 'Barber Shop 10',
+                },
+                {
+                    preview: './photos/barber11.jpg',
+                    original: './photos/barber11.jpg',
+                    description: 'Barber Shop 11',
+                },
+                {
+                    preview: './photos/barber12.jpeg',
+                    original: './photos/barber12.jpeg',
+                    description: 'Barber Shop 12',
+                }
+            ];
+
+            const gallery = document.querySelector('.gallery');
+
+            const galleryItems = images.map(({ preview, original, description }) => {
+                return `
+                &lt;li&gt;
+                &lt;img src="${preview}" data-source="${original}" alt="${description}" width="360" height="auto"&gt;
+                        &lt;/li&gt;
+                `;
+            }).join('');
+
+            gallery.innerHTML = galleryItems;
+
+            gallery.addEventListener('click', event => {
+                event.preventDefault();
+                const { target } = event;
+                if (target.nodeName !== 'IMG') return;
+
+                const source = target.dataset.source;
+                console.log(source); 
+
+                const instance = basicLightbox.create(`
+                &lt;img src="${source}" width="800" height="600" alt="${target.alt}" style="width: 800px; height: 600px; object-fit: cover;"&gt;
+                `);
+
+                instance.show();
+            });
+
+
+
+
+            </code></pre>
+            <P></P>
+            <P>Форма:</P>
+            <pre><code>
+                const formData = { email: "", message: "" };
+                const form = document.querySelector('.feedback-form');
+                const emailInput = form.querySelector('input[name="email"]');
+                const messageInput = form.querySelector('textarea[name="message"]');
+
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
+                    if (savedData) {
+                        emailInput.value = savedData.email || '';
+                        messageInput.value = savedData.message || '';
+                        formData.email = savedData.email || '';
+                        formData.message = savedData.message || '';
+                    }
+                });
+
+
+                form.addEventListener('input', event => {
+                    formData[event.target.name] = event.target.value.trim();
+                    localStorage.setItem('feedback-form-state', JSON.stringify(formData));
+                });
+
+
+                form.addEventListener('submit', event => {
+                    event.preventDefault();
+                    if (!formData.email || !formData.message) {
+                        alert('Fill please all fields');
+                        return;
+                    }
+
+                    console.log(formData);
+                    localStorage.removeItem('feedback-form-state');
+                    form.reset();
+                    formData.email = '';
+                    formData.message = '';
+                });
+
+
+                messageInput.addEventListener('focus', () => {
+                    messageInput.placeholder = 'Type area';
+                });
+
+                emailInput.addEventListener('focus', () => {
+                    emailInput.placeholder = 'Type area';
+                });
+
+
+                messageInput.addEventListener('blur', () => {
+                    messageInput.placeholder = '';
+                });
+                emailInput.addEventListener('blur', () => {
+                    emailInput.placeholder = '';
+                });
+
+            </code></pre>
+        </div>
+
+    </div>
+
+    <div class="content-nav" id="contentNav9">
+        <div class="content-box" onclick="toggleVisibility('Lab8intro')">Сертифікат й оцінка</div>
+        <div class="content-box" onclick="toggleVisibility('Lab8test')">Тести</div>
+        <div class="content-box" onclick="toggleVisibility('Lab8task')">Завдання</div>
+    </div>
+
+    <div class="sectionContent" id="sectionContent9">
+        <div id="Lab8intro" class="content-section">
+            <img src="./8/cert2.PNG" alt="result"></img>
+            <img src="./8/grades2.PNG" alt="result"></img>
+        </div>
+        <div id="Lab8test" class="content-section">
+            <img src="./8/1.PNG" alt="result"></img>
+            <img src="./8/2.PNG" alt="result"></img>
+            <img src="./8/3.PNG" alt="result"></img>
+            <img src="./8/4.PNG" alt="result"></img>
+            <img src="./8/5.PNG" alt="result"></img>
+            <img src="./8/6.PNG" alt="result"></img>
+            <img src="./8/7.PNG" alt="result"></img>
+            <img src="./8/8.PNG" alt="result"></img>
+            <img src="./8/9.PNG" alt="result"></img>
+            <img src="./8/10.PNG" alt="result"></img>
+        </div>
+        <div id="Lab8task" class="content-section">
+            <img src="./8/task8.PNG" alt="result"></img>
+            <pre><code>
+                import { useState, useRef } from "react";
+                import "./App.css";
+
+                function App() {
+                const inputRef = useRef(null);
+                const resultRef = useRef(null);
+                const [result, setResult] = useState(0);
+
+                function plus(e) {
+                    e.preventDefault();
+                    setResult((result) => result + Number(inputRef.current.value));
+                }
+
+                function minus(e) {
+                    e.preventDefault();
+                    setResult((result) => result - Number(inputRef.current.value));
+                }
+
+                function times(e) {
+                    e.preventDefault();
+                    setResult((result) => result * Number(inputRef.current.value));
+                }
+
+                function divide(e) {
+                    e.preventDefault();
+                    setResult((result) => result / Number(inputRef.current.value));
+                }
+
+                function resetInput(e) {
+                    e.preventDefault();
+                    inputRef.current.value = '';
+                }
+
+                function resetResult(e) {
+                    e.preventDefault();
+                    setResult(0);
+                }
+
+                return (
+                    &lt;div className="App"&gt;
+                    &lt;div&gt;
+                    &lt;h1&gt;Simplest Working Calculator&lt;/h1&gt;
+                    &lt;/div&gt;
+                    &lt;form&gt;
+                    &lt;p ref={resultRef}&gt;
+                        {result}
+                        &lt;/p&gt;
+                        &lt;input
+                        pattern="[0-9]"
+                        ref={inputRef}
+                        type="number"
+                        placeholder="Type a number"
+                        /&gt;
+                        &lt;button onClick={plus}&gt;Add&lt;/button&gt;
+                        &lt;button onClick={minus}&gt;Subtract&lt;/button&gt;
+                        &lt;button onClick={times}&gt;Multiply&lt;/button&gt;
+                        &lt;button onClick={divide}&gt;Divide&lt;/button&gt;
+                        &lt;button onClick={resetInput}&gt;Reset Input&lt;/button&gt;
+                        &lt;button onClick={resetResult}&gt;Reset Result &lt;/button&gt;
+                    &lt;/form>
+                    &lt;/div>
+                );
+                }
+
+                export default App;
+            </code></pre>
+        </div>
+        </div>
+    </div>
+
+    <div class="content-nav" id="contentNav10">
+        <div class="content-box" onclick="toggleVisibility('Lab9intro')">Сертифікат й оцінка</div>
+        <div class="content-box" onclick="toggleVisibility('Lab9test')">Тести</div>
+        <div class="content-box" onclick="toggleVisibility('Lab9task')">Завдання</div>
+    </div>
+
+    <div class="sectionContent" id="sectionContent9">
+        <div id="Lab9intro" class="content-section">
+            <img src="./9/cert1.PNG" alt="result"></img>
+            <img src="./9/grades1.PNG" alt="result"></img>
+        </div>
+        <div id="Lab9test" class="content-section">
+            <img src="./9/1.PNG" alt="result"></img>
+            <img src="./9/2.PNG" alt="result"></img>
+            <img src="./9/3.PNG" alt="result"></img>
+            <img src="./9/4.PNG" alt="result"></img>
+            <img src="./9/5.PNG" alt="result"></img>
+            <img src="./9/6.PNG" alt="result"></img>
+            <img src="./9/7.PNG" alt="result"></img>
+            <img src="./9/8.PNG" alt="result"></img>
+            <img src="./9/9.PNG" alt="result"></img>
+            <img src="./9/10.PNG" alt="result"></img>
+            <img src="./9/11.PNG" alt="result"></img>
+        </div>
+        <div id="Lab9task" class="content-section">
+            <p>Setting up MongoDB: </p>
+            <pre><code>
+            const { MongoClient } = require('mongodb');
+
+            const url = 'mongodb://localhost:27017';
+            const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
+            async function connect() {
+            try {
+                await client.connect();
+                console.log("Connected to MongoDB");
+            } catch (err) {
+                console.error(err);
+            }
+            }
+
+            connect();
+
+            module.exports = client;
+            </code></pre>
+            <p></p>
+            <p>Building CRUD operations: </p>
+            <pre><code>
+                const express = require('express');
+                const { ObjectId } = require('mongodb');
+                const client = require('./db');
+                const jwt = require('jsonwebtoken');
+
+                const app = express();
+                const port = 3000;
+
+                app.use(express.json());
+
+                const dbName = 'mydatabase';
+                const collectionName = 'items';
+
+                // Middleware for error handling
+                app.use((err, req, res, next) => {
+                console.error(err.stack);
+                res.status(500).json({ error: err.message });
+                });
+
+                // Middleware for authentication
+                const authenticateToken = (req, res, next) => {
+                const token = req.header('Authorization')?.split(' ')[1];
+                if (!token) return res.sendStatus(401);
+
+                jwt.verify(token, 'your_jwt_secret', (err, user) => {
+                    if (err) return res.sendStatus(403);
+                    req.user = user;
+                    next();
+                });
+                };
+
+                // Middleware for role-based authorization
+                const authorizeRole = (role) => {
+                return (req, res, next) => {
+                    if (req.user.role !== role) return res.sendStatus(403);
+                    next();
+                };
+                };
+
+                // CRUD routes
+                app.post('/items', authenticateToken, async (req, res, next) => {
+                const item = req.body;
+                try {
+                    const db = client.db(dbName);
+                    const result = await db.collection(collectionName).insertOne(item);
+                    res.status(201).json(result.ops[0]);
+                } catch (err) {
+                    next(err);
+                }
+                });
+
+                app.get('/items', authenticateToken, async (req, res, next) => {
+                try {
+                    const db = client.db(dbName);
+                    const items = await db.collection(collectionName).find().toArray();
+                    res.status(200).json(items);
+                } catch (err) {
+                    next(err);
+                }
+                });
+
+                app.put('/items/:id', authenticateToken, async (req, res, next) => {
+                const { id } = req.params;
+                const update = req.body;
+                try {
+                    const db = client.db(dbName);
+                    const result = await db.collection(collectionName).findOneAndUpdate(
+                    { _id: new ObjectId(id) },
+                    { $set: update },
+                    { returnOriginal: false }
+                    );
+                    res.status(200).json(result.value);
+                } catch (err) {
+                    next(err);
+                }
+                });
+
+                app.delete('/items/:id', authenticateToken, async (req, res, next) => {
+                const { id } = req.params;
+                try {
+                    const db = client.db(dbName);
+                    await db.collection(collectionName).deleteOne({ _id: new ObjectId(id) });
+                    res.status(204).send();
+                } catch (err) {
+                    next(err);
+                }
+                });
+
+                // Admin-only route
+                app.post('/admin/items', authenticateToken, authorizeRole('admin'), async (req, res, next) => {
+                const item = req.body;
+                try {
+                    const db = client.db(dbName);
+                    const result = await db.collection(collectionName).insertOne(item);
+                    res.status(201).json(result.ops[0]);
+                } catch (err) {
+                    next(err);
+                }
+                });
+
+                app.listen(port, () => {
+                console.log(`Server is running on http://localhost:${port}`);
+                });
+            </code></pre>
+
+            <p></p>
+            <p>Middleware: </p>
+            <pre><code>
+
+            const jwt = require('jsonwebtoken');
+
+            const generateToken = (user) => {
+            return jwt.sign(user, 'your_jwt_secret', { expiresIn: '1h' });
+            };
+
+            module.exports = { generateToken };
+            </code></pre>
+
+
+
+
+
+        </div>
     </div>
 </div>
 
